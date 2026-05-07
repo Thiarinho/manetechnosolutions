@@ -1,0 +1,53 @@
+export default function ServiceCard({
+  icon,
+  image,
+  title,
+  description,
+}) {
+  return (
+    <div className="relative group overflow-hidden rounded-2xl h-[450px] shadow-xl cursor-pointer">
+
+      {/* IMAGE */}
+      {image ? (
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+        />
+      ) : (
+        <div className="w-full h-full bg-gray-800 grid place-items-center text-6xl text-orange-400">
+          {icon}
+        </div>
+      )}
+
+      {/* OVERLAY */}
+      <div className="absolute inset-0 bg-black/70 group-hover:bg-black/60 transition duration-300"></div>
+
+      {/* CONTENT */}
+      <div className="absolute inset-0 flex flex-col justify-end p-8 z-10">
+
+        {/* ICON */}
+        <div className="text-5xl text-orange-400 mb-4">
+          {icon}
+        </div>
+
+        {/* TITLE */}
+        <h3 className="text-3xl font-bold text-white">
+          {title}
+        </h3>
+
+        {/* DESCRIPTION */}
+        <p className="text-gray-300 mt-4 leading-7">
+          {description}
+        </p>
+
+        {/* BUTTON */}
+        <button className="mt-6 w-fit bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-lg text-white transition">
+          Voir plus
+        </button>
+
+      </div>
+
+    </div>
+  );
+}
