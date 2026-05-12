@@ -30,7 +30,7 @@ export default function WhyChooseUs() {
             Sécurité
           </h3>
           <p className="text-gray-400 mt-3">
-            Solutions sécurisées pour protéger vos installations et données.
+            Solutions sécurisées pour protéger votre entreprise et/ou maison.
           </p>
         </div>
 

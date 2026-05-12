@@ -24,11 +24,11 @@ export default function Projects() {
       {/* TITLE */}
       <div className="text-center mb-14">
         <h2 className="text-4xl font-bold text-orange-400">
-          Nos Réalisations
+          Produit d'intrusion avec Ajax pro.
         </h2>
 
         <p className="text-gray-400 mt-4">
-          Quelques projets et solutions réalisés par MTS.
+          Les peripheriques utilisés.
         </p>
       </div>
 

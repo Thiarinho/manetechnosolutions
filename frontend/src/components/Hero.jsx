@@ -21,7 +21,7 @@ export default function Hero() {
         </h2>
 
         <p className="mt-6 text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-          CCTV, Réseaux, Électricité, Climatisation et Solutions Digitales
+          CCTV, Réseaux, Électricité, Systeme d'intrusion, Climatisation et Solutions Digitales
           adaptées aux entreprises et particuliers.
         </p>
 

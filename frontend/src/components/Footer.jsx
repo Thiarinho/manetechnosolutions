@@ -33,7 +33,7 @@ export default function Footer() {
           <h3 className="text-lg font-semibold text-blue-400">Contact</h3>
           <ul className="mt-3 space-y-2 text-sm">
             <li>Dakar, Sénégal</li>
-            <li>Téléphone : +221 70 790 16 62</li>
+            <li>Téléphone : +221 70 790 16 62/ +221 77 602 32 15</li>
             <li>Email : thiernomane932@gmail.com</li>
             <li className="text-orange-400 cursor-pointer">
               WhatsApp disponible

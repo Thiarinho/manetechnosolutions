@@ -22,7 +22,7 @@ export default function Navbar() {
             </h1>
 
             <p className="text-xs text-gray-400">
-              Manetechnosolutions
+              ManeTechnoSolutions
             </p>
           </div>
 
