@@ -3,7 +3,6 @@ import Hero from "../components/Hero";
 import ServiceCard from "../components/ServiceCard";
 import Footer from "../components/Footer";
 import WhyChooseUs from "../components/WhyChooseUs";
-import Projects from "../components/Projects";
 import cctvImg from "../assets/services/cctv.png";
 import networkImg from "../assets/services/network.png";
 import electricImg from "../assets/services/electric.png";
@@ -28,7 +27,8 @@ export default function Home() {
 
   // FETCH BACKEND DATA
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+    fetch(`${apiUrl}/services`)
       .then((res) => res.json())
       .then((data) => setServices(data))
       .catch((err) => console.log(err));
@@ -69,7 +69,6 @@ export default function Home() {
 
       {/* WHY CHOOSE US */}
       <WhyChooseUs />
-      <Projects />
 
       {/* FOOTER */}
       <Footer />

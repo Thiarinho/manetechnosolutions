@@ -1,84 +1,171 @@
-import { FaSearch, FaBars } from "react-icons/fa";
-import logo from "../assets/logo.jpg";
+import { FaSearch, FaBars, FaTimes, FaShoppingCart } from "react-icons/fa";
+import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/logo.png";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <header className="bg-gray-950 text-white sticky top-0 z-50 shadow-lg border-b border-gray-800">
+    <header className="bg-[#111827] text-white sticky top-0 z-50 shadow-lg border-b border-[#1F2937]">
 
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-6 py-3 md:py-4">
 
         {/* LOGO */}
         <div className="flex items-center gap-3 cursor-pointer">
 
           <img
             src={logo}
-            alt="MTS Logo"
-            className="w-12 h-12 object-cover rounded-full border-2 border-orange-400"
+            alt="Logo"
+            className="w-32 md:w-40 h-auto object-contain"
           />
 
           <div>
-            <h1 className="text-2xl font-bold text-orange-400">
-              MTS
-            </h1>
-
-            <p className="text-xs text-gray-400">
-              ManeTechnoSolutions
-            </p>
+            
+          
           </div>
 
         </div>
 
         {/* SEARCH BAR */}
-        <div className="hidden md:flex items-center bg-gray-900 rounded-lg overflow-hidden w-1/3 border border-gray-700">
+        <div className="hidden lg:flex items-center bg-[#1F2937] rounded-lg overflow-hidden w-1/3 border border-[#374151]">
 
           <input
             type="text"
             placeholder="Rechercher un service..."
-            className="w-full bg-transparent px-4 py-2 outline-none text-sm"
+            className="w-full bg-transparent px-3 md:px-4 py-2 outline-none text-xs md:text-sm text-white placeholder-gray-400"
           />
 
-          <button className="bg-orange-500 px-4 py-3 hover:bg-orange-600 transition">
+          <button className="bg-[#19B5F1] px-3 md:px-4 py-2 md:py-3 hover:bg-[#0EA5E9] transition duration-300">
             <FaSearch />
           </button>
 
         </div>
 
         {/* DESKTOP MENU */}
-        <nav className="hidden md:flex items-center gap-8 font-medium">
+        <nav className="hidden md:flex items-center gap-4 lg:gap-8 font-medium text-sm lg:text-base">
 
-          <a
-            href="/"
-            className="hover:text-orange-400 transition"
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `transition duration-300 ${isActive ? "text-[#F5B321]" : "hover:text-[#F5B321]"}`
+            }
           >
             Accueil
-          </a>
+          </NavLink>
 
-          <a
-            href="/services"
-            className="hover:text-orange-400 transition"
+          <NavLink
+            to="/services"
+            className={({ isActive }) =>
+              `transition duration-300 ${isActive ? "text-[#F5B321]" : "hover:text-[#F5B321]"}`
+            }
           >
             Services
-          </a>
+          </NavLink>
 
-          <a
-            href="/contact"
-            className="hover:text-orange-400 transition"
+          <NavLink
+            to="/products"
+            className={({ isActive }) =>
+              `transition duration-300 ${isActive ? "text-[#F5B321]" : "hover:text-[#F5B321]"}`
+            }
+          >
+            Produits
+          </NavLink>
+
+          <NavLink
+            to="/cart"
+            className={({ isActive }) =>
+              `transition duration-300 ${isActive ? "text-[#F5B321]" : "hover:text-[#F5B321]"} flex items-center gap-2`
+            }
+          >
+            <FaShoppingCart />
+            Panier
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `transition duration-300 ${isActive ? "text-[#F5B321]" : "hover:text-[#F5B321]"}`
+            }
           >
             Contact
-          </a>
+          </NavLink>
 
-          <button className="bg-orange-500 hover:bg-orange-600 px-5 py-2 rounded-lg transition">
-            Devis
-          </button>
+          <Link
+            to="/devis"
+            className="bg-[#F5B321] hover:bg-yellow-500 text-black font-semibold px-5 py-2 rounded-lg transition duration-300 shadow-md"
+          >
+            Devis 
+          </Link>
 
         </nav>
 
         {/* MOBILE MENU ICON */}
-        <button className="md:hidden text-2xl text-orange-400">
-          <FaBars />
+        <button className="md:hidden text-2xl text-[#19B5F1]" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <FaTimes /> : <FaBars />}
         </button>
 
       </div>
+
+      {/* MOBILE MENU */}
+      {isOpen && (
+        <div className="md:hidden bg-[#111827] border-t border-[#1F2937] px-6 py-4">
+          <nav className="flex flex-col gap-4">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `hover:text-[#F5B321] transition duration-300 py-2 ${isActive ? "text-[#F5B321]" : ""}`
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              Accueil
+            </NavLink>
+            <NavLink
+              to="/services"
+              className={({ isActive }) =>
+                `hover:text-[#F5B321] transition duration-300 py-2 ${isActive ? "text-[#F5B321]" : ""}`
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              Services
+            </NavLink>
+            <NavLink
+              to="/products"
+              className={({ isActive }) =>
+                `hover:text-[#F5B321] transition duration-300 py-2 ${isActive ? "text-[#F5B321]" : ""}`
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              Produits
+            </NavLink>
+            <NavLink
+              to="/cart"
+              className={({ isActive }) =>
+                `hover:text-[#F5B321] transition duration-300 py-2 flex items-center gap-2 ${isActive ? "text-[#F5B321]" : ""}`
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              <FaShoppingCart />
+              Panier
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) =>
+                `hover:text-[#F5B321] transition duration-300 py-2 ${isActive ? "text-[#F5B321]" : ""}`
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              Contact
+            </NavLink>
+            <Link
+              to="/devis"
+              className="bg-[#F5B321] hover:bg-yellow-500 text-black font-semibold px-5 py-2 rounded-lg transition duration-300 shadow-md w-fit"
+              onClick={() => setIsOpen(false)}
+            >
+              Devis 
+            </Link>
+          </nav>
+        </div>
+      )}
 
     </header>
   );
