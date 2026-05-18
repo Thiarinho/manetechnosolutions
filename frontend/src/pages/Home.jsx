@@ -28,7 +28,7 @@ export default function Home() {
   // FETCH BACKEND DATA
   useEffect(() => {
     const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
-    fetch(`${apiUrl}/services`)
+    fetch(`${apiUrl}/api/services`)
       .then((res) => res.json())
       .then((data) => setServices(data))
       .catch((err) => console.log(err));
@@ -45,7 +45,14 @@ export default function Home() {
 };
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="min-h-screen" style={{
+      background: `
+        linear-gradient(135deg, #0B0F14 0%, #1a1f2e 50%, #0B0F14 100%),
+        radial-gradient(circle at 20% 80%, rgba(0, 209, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(245, 183, 0, 0.1) 0%, transparent 50%)
+      `,
+      backgroundAttachment: 'fixed'
+    }}>
 
       {/* NAVBAR */}
       <Navbar />

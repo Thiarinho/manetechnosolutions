@@ -65,7 +65,14 @@ export default function Devis() {
   };
 
   return (
-    <div className="bg-black min-h-screen text-white">
+    <div className="min-h-screen text-white" style={{
+      background: `
+        linear-gradient(135deg, #0B0F14 0%, #141820 40%, #0B0F14 100%),
+        radial-gradient(circle at 25% 75%, rgba(0, 209, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 25%, rgba(245, 183, 0, 0.08) 0%, transparent 50%)
+      `,
+      backgroundAttachment: 'fixed'
+    }}>
       <Navbar />
 
       <section className="bg-[#0B0F14] text-white py-12 md:py-24 px-4 md:px-6">

@@ -3,7 +3,14 @@ import Footer from "../components/Footer";
 
 export default function Contact() {
   return (
-    <div className="bg-black min-h-screen text-white">
+    <div className="min-h-screen text-white" style={{
+      background: `
+        linear-gradient(180deg, #0B0F14 0%, #0f1622 50%, #0B0F14 100%),
+        repeating-linear-gradient(45deg, rgba(0, 209, 255, 0.05) 0px, rgba(0, 209, 255, 0.05) 10px, transparent 10px, transparent 20px),
+        repeating-linear-gradient(-45deg, rgba(245, 183, 0, 0.05) 0px, rgba(245, 183, 0, 0.05) 10px, transparent 10px, transparent 20px)
+      `,
+      backgroundAttachment: 'fixed'
+    }}>
       <Navbar />
 
       <section className="bg-[#0B0F14] text-white py-12 md:py-24 px-4 md:px-6">

@@ -54,7 +54,7 @@ app.get("/", (req, res) => {
   });
 });
 
-app.get("/services", (req, res) => {
+app.get("/api/services", (req, res) => {
   res.json([
     {
       id: 1,

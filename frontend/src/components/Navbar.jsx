@@ -1,10 +1,33 @@
 import { FaSearch, FaBars, FaTimes, FaShoppingCart } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    // Charger le panier initial
+    const updateCartCount = () => {
+      const cart = localStorage.getItem("cart");
+      const items = cart ? JSON.parse(cart) : [];
+      const count = items.reduce((total, item) => total + item.quantity, 0);
+      setCartCount(count);
+    };
+
+    updateCartCount();
+
+    // Écouter les changements du panier
+    window.addEventListener("cartUpdated", updateCartCount);
+    window.addEventListener("storage", updateCartCount);
+
+    return () => {
+      window.removeEventListener("cartUpdated", updateCartCount);
+      window.removeEventListener("storage", updateCartCount);
+    };
+  }, []);
+
   return (
     <header className="bg-[#111827] text-white sticky top-0 z-50 shadow-lg border-b border-[#1F2937]">
 
@@ -74,11 +97,16 @@ export default function Navbar() {
           <NavLink
             to="/cart"
             className={({ isActive }) =>
-              `transition duration-300 ${isActive ? "text-[#F5B321]" : "hover:text-[#F5B321]"} flex items-center gap-2`
+              `transition duration-300 ${isActive ? "text-[#F5B321]" : "hover:text-[#F5B321]"} flex items-center gap-2 relative`
             }
           >
             <FaShoppingCart />
             Panier
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                {cartCount}
+              </span>
+            )}
           </NavLink>
 
           <NavLink
@@ -140,12 +168,17 @@ export default function Navbar() {
             <NavLink
               to="/cart"
               className={({ isActive }) =>
-                `hover:text-[#F5B321] transition duration-300 py-2 flex items-center gap-2 ${isActive ? "text-[#F5B321]" : ""}`
+                `hover:text-[#F5B321] transition duration-300 py-2 flex items-center gap-2 relative ${isActive ? "text-[#F5B321]" : ""}`
               }
               onClick={() => setIsOpen(false)}
             >
               <FaShoppingCart />
               Panier
+              {cartCount > 0 && (
+                <span className="bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
             </NavLink>
             <NavLink
               to="/contact"
