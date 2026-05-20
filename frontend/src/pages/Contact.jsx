@@ -30,13 +30,35 @@ export default function Contact() {
               </div>
               <div>
                 <h2 className="text-lg md:text-xl font-semibold text-white">Email</h2>
-                <p className="text-sm md:text-base mt-1">manetechnosolutions@gmail.com</p>
+                <a
+                  href="mailto:manetechnosolutions@gmail.com"
+                  className="text-sm md:text-base mt-1 inline-block text-[#00D1FF] hover:text-[#F5B321] transition"
+                >
+                  manetechnosolutions@gmail.com
+                </a>
               </div>
               <div>
                 <h2 className="text-lg md:text-xl font-semibold text-white">Téléphone</h2>
-                <p className="text-sm md:text-base mt-1">+221 70 790 16 62</p>
+                <a
+                  href="tel:+221707901662"
+                  className="text-sm md:text-base mt-1 inline-block text-[#00D1FF] hover:text-[#F5B321] transition"
+                >
+                  +221 70 790 16 62
+                </a>
+              </div>
+              <div>
+                <h2 className="text-lg md:text-xl font-semibold text-white">WhatsApp</h2>
+                <a
+                  href="https://wa.me/221707901662"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm md:text-base mt-1 inline-block text-[#25D366] hover:text-[#F5B321] transition"
+                >
+                  Discuter sur WhatsApp
+                </a>
               </div>
             </div>
+
           </div>
 
           <div className="bg-gray-900/80 border border-gray-800 rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl">
@@ -63,6 +85,20 @@ export default function Contact() {
             </form>
           </div>
         </div>
+
+        {/* Carte de Dakar pleine largeur */}
+        <div className="max-w-5xl mx-auto mt-8 px-4 md:px-0">
+          <div className="w-full rounded-2xl overflow-hidden border border-gray-800">
+            <iframe
+              title="Carte de Dakar"
+              src="https://maps.google.com/maps?q=Dakar%20Senegal&t=&z=12&ie=UTF8&iwloc=&output=embed"
+              className="w-full h-64 md:h-96 border-0"
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+
       </section>
 
       <Footer />

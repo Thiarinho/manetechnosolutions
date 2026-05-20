@@ -1,4 +1,4 @@
-import { FaSearch, FaBars, FaTimes, FaShoppingCart } from "react-icons/fa";
+import { FaBars, FaTimes, FaShoppingCart, FaWhatsapp } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { useState, useEffect } from "react";
@@ -42,30 +42,10 @@ export default function Navbar() {
             className="w-32 md:w-40 h-auto object-contain"
           />
 
-          <div>
-            
-          
-          </div>
-
-        </div>
-
-        {/* SEARCH BAR */}
-        <div className="hidden lg:flex items-center bg-[#1F2937] rounded-lg overflow-hidden w-1/3 border border-[#374151]">
-
-          <input
-            type="text"
-            placeholder="Rechercher un service..."
-            className="w-full bg-transparent px-3 md:px-4 py-2 outline-none text-xs md:text-sm text-white placeholder-gray-400"
-          />
-
-          <button className="bg-[#19B5F1] px-3 md:px-4 py-2 md:py-3 hover:bg-[#0EA5E9] transition duration-300">
-            <FaSearch />
-          </button>
-
         </div>
 
         {/* DESKTOP MENU */}
-        <nav className="hidden md:flex items-center gap-4 lg:gap-8 font-medium text-sm lg:text-base">
+        <nav className="hidden md:flex items-center gap-3 lg:gap-4 font-medium text-sm lg:text-base">
 
           <NavLink
             to="/"
@@ -118,12 +98,31 @@ export default function Navbar() {
             Contact
           </NavLink>
 
+          <NavLink
+            to="/about"
+            className={({ isActive }) =>
+              `transition duration-200 ${isActive ? "text-[#F5B321]" : "hover:text-[#F5B321]"}`
+            }
+          >
+            À propos
+          </NavLink>
+
           <Link
             to="/devis"
             className="bg-[#F5B321] hover:bg-yellow-500 text-black font-semibold px-5 py-2 rounded-lg transition duration-300 shadow-md"
           >
-            Devis 
+            Devis
           </Link>
+
+          <a
+            href="https://wa.me/221707901662"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 bg-[#25D366] text-[#111827] font-semibold px-4 py-2 rounded-full hover:bg-[#20b85b] transition"
+          >
+            <FaWhatsapp />
+            WhatsApp
+          </a>
 
         </nav>
 
@@ -190,12 +189,29 @@ export default function Navbar() {
               Contact
             </NavLink>
             <Link
+              to="/about"
+              className="bg-[#F5B321] hover:bg-yellow-500 text-black font-semibold px-5 py-2 rounded-lg transition duration-300 shadow-md w-fit"
+              onClick={() => setIsOpen(false)}
+            >
+              À propos
+            </Link>
+            <Link
               to="/devis"
               className="bg-[#F5B321] hover:bg-yellow-500 text-black font-semibold px-5 py-2 rounded-lg transition duration-300 shadow-md w-fit"
               onClick={() => setIsOpen(false)}
             >
-              Devis 
+              Devis
             </Link>
+            <a
+              href="https://wa.me/221707901662"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 bg-[#25D366] text-[#111827] font-semibold px-4 py-2 rounded-full hover:bg-[#20b85b] transition w-fit"
+              onClick={() => setIsOpen(false)}
+            >
+              <FaWhatsapp />
+              WhatsApp
+            </a>
           </nav>
         </div>
       )}

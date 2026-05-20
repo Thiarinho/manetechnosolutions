@@ -16,10 +16,16 @@ export default function Cart() {
     }
   }, []);
 
+  const getNumericPrice = (price) => {
+    const numericString = String(price).replace(/\D/g, "");
+    return numericString ? parseFloat(numericString) : 0;
+  };
+
   const calculateTotal = (items) => {
     const sum = items.reduce((acc, item) => {
-      const price = parseFloat(item.price.replace(/\D/g, "")) || 0;
-      return acc + price * item.quantity;
+      const price = getNumericPrice(item.price);
+      const quantity = Number(item.quantity) || 1;
+      return acc + price * quantity;
     }, 0);
     setTotal(sum);
   };
@@ -109,10 +115,10 @@ export default function Cart() {
                         {item.name}
                       </h3>
                       <p className="text-[#F5B700] font-semibold mt-1">
-                        {item.price}
+                        {item.priceDisplay ?? `${getNumericPrice(item.price).toLocaleString()} FCFA`}
                       </p>
                       <p className="text-gray-400 text-sm mt-1">
-                        Total: {(parseFloat(item.price.replace(/\D/g, "")) * item.quantity).toLocaleString()} FCFA
+                        Total: {(getNumericPrice(item.price) * (Number(item.quantity) || 1)).toLocaleString()} FCFA
                       </p>
                     </div>
 

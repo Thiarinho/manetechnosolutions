@@ -1,3 +1,5 @@
+import { FaWhatsapp, FaInstagram, FaFacebook, FaTwitter } from "react-icons/fa";
+
 export default function Footer() {
   return (
     <footer className="bg-[#0F172A] text-gray-300 pt-8 md:pt-12 pb-4 md:pb-5 border-t border-[#1E293B]">
@@ -68,20 +70,76 @@ export default function Footer() {
           <li className="hover:text-[#F5B321] transition duration-300 cursor-pointer">
                Dakar, Sénégal
             </li>
-            <li className="hover:text-[#F5B321] transition duration-300 cursor-pointer">
-             +221 70 790 16 62 <br />
-              +221 77 602 32 15
+            <li className="hover:text-[#F5B321] transition duration-300">
+              <a href="tel:+221707901662" className="inline-block text-gray-400 hover:text-[#F5B321] transition">
+                +221 70 790 16 62
+              </a>
+              <br />
+              <a href="tel:+221776023215" className="inline-block text-gray-400 hover:text-[#F5B321] transition">
+                +221 77 602 32 15
+              </a>
             </li>
 
-            <li className="hover:text-[#F5B321] transition duration-300 cursor-pointer">
-             thiernomane932@gmail.com
+            <li className="hover:text-[#F5B321] transition duration-300">
+              <a
+                href="mailto:thiernomane932@gmail.com"
+                className="inline-block text-gray-400 hover:text-[#F5B321] transition"
+              >
+                thiernomane932@gmail.com
+              </a>
             </li>
     
-            <li className="text-[#25D366] font-medium cursor-pointer hover:opacity-80 transition">
-              WhatsApp disponible
+            <li className="text-[#25D366] font-medium hover:opacity-80 transition">
+              <a
+                href="https://wa.me/221707901662"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block text-current"
+              >
+                WhatsApp disponible
+              </a>
             </li>
 
           </ul>
+
+          <div className="mt-5 flex items-center gap-3">
+            <a
+              href="https://wa.me/221707901662"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#25D366] text-white hover:bg-[#20b85b] transition"
+              aria-label="WhatsApp"
+            >
+              <FaWhatsapp />
+            </a>
+            <a
+              href="https://instagram.com/yourprofile"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#E1306C] text-white hover:bg-[#c72f63] transition"
+              aria-label="Instagram"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://facebook.com/yourprofile"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#1877F2] text-white hover:bg-[#166fe5] transition"
+              aria-label="Facebook"
+            >
+              <FaFacebook />
+            </a>
+            <a
+              href="https://twitter.com/yourprofile"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#1DA1F2] text-white hover:bg-[#1991eb] transition"
+              aria-label="Twitter"
+            >
+              <FaTwitter />
+            </a>
+          </div>
         </div>
 
       </div>
