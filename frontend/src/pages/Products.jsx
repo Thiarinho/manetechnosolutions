@@ -351,7 +351,7 @@ export default function Products() {
             <p className="text-gray-400 text-lg">Aucun produit ne correspond à votre recherche</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
             {filteredProducts.map((product) => (
               <div
                 key={product.id}
@@ -412,18 +412,14 @@ export default function Products() {
 
                   {/* BUTTONS */}
                   <div className="flex gap-2 mt-4 md:mt-6">
-                    <button
-                      onClick={() => setSelectedProduct(product)}
-                      className="flex-1 bg-[#00D1FF] hover:bg-[#00B8E6] text-black font-bold py-2 md:py-3 rounded-xl transition duration-300 text-sm md:text-base"
-                    >
-                      Détails
-                    </button>
-                    <button
-                      onClick={() => setSelectedProduct(product)}
-                      className="flex-1 border border-gray-700 hover:border-[#00D1FF] text-white font-bold py-2 md:py-3 rounded-xl transition duration-300 text-sm md:text-base"
-                    >
-                      Panier
-                    </button>
+                    
+<button
+  onClick={() => handleAddToCart({ ...product, quantity: 1 })}
+  className="flex-1 border border-gray-700 hover:bg-[#00D1FF] hover:text-black text-white font-bold py-2 rounded-xl"
+>
+  Panier
+</button>
+                    
                   </div>
                 </div>
               </div>

@@ -9,7 +9,8 @@ import electricImg from "../assets/services/electric.png";
 import climImg from "../assets/services/clim.png";
 import cvImg from "../assets/services/cv.png";
 import digitalImg from "../assets/services/digital.png";
-
+import ajaxImg from "../assets/services/ajax.png";
+import { Link } from "react-router-dom";
 export default function Services() {
   const [selectedService, setSelectedService] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
@@ -112,7 +113,38 @@ export default function Services() {
         { title: "Maintenance préventive", description: "Réduire les risques" },
         { title: "Optimisation continue", description: "Amélioration des performances" }
       ]
+    },{
+  id: 7,
+  title: "Ajax Security",
+  category: "Sécurité",
+  badge: "Premium",
+  rating: 4.9,
+  reviews: 87,
+  image: ajaxImg,
+
+  shortDescription:
+    "Système d’alarme intelligent et sécurité connectée haut de gamme.",
+
+  details:
+    "Protection avancée avec détecteurs intelligents, notifications instantanées et contrôle à distance.",
+
+  features: [
+    {
+      title: "Détection intelligente",
+      description: "Capteurs nouvelle génération"
+    },
+
+    {
+      title: "Contrôle mobile",
+      description: "Gestion depuis smartphone"
+    },
+
+    {
+      title: "Installation professionnelle",
+      description: "Configuration sécurisée complète"
     }
+  ]
+}
   ];
 
   const categories = ["Tous", ...new Set(services.map((service) => service.category))];
@@ -243,12 +275,21 @@ export default function Services() {
                     </div>
                   </div>
 
-                  <button
-                    onClick={() => setSelectedService(service)}
-                    className="w-full bg-[#00D1FF] hover:bg-[#00B8E6] text-black font-semibold py-3 rounded-2xl transition duration-300"
-                  >
-                    Découvrir le service
-                  </button>
+  <div className="flex gap-3">
+  <button
+    onClick={() => setSelectedService(service)}
+    className="flex-1 bg-[#00D1FF] hover:bg-[#00B8E6] text-black font-semibold py-3 rounded-2xl transition duration-300"
+  >
+    Aperçu
+  </button>
+
+  <Link
+    to="/contact"
+    className="flex-1 text-center border border-[#00D1FF] hover:bg-[#00D1FF] hover:text-black text-white font-semibold py-3 rounded-2xl transition duration-300"
+  >
+    Contact
+  </Link>
+</div>
                 </div>
               </div>
             ))}
